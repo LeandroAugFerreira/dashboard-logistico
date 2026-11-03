@@ -1,0 +1,135 @@
+TAP version 13
+# Subtest: PBIX e bases são cópias binárias preservadas
+ok 1 - PBIX e bases são cópias binárias preservadas
+  ---
+  duration_ms: 9.2435
+  ...
+# Subtest: Snapshot binário e contagens de todas as tabelas preservados
+ok 2 - Snapshot binário e contagens de todas as tabelas preservados
+  ---
+  duration_ms: 3.2864
+  ...
+# Subtest: Reconciliação independente do contexto 0 {}
+ok 3 - Reconciliação independente do contexto 0 {}
+  ---
+  duration_ms: 5.2291
+  ...
+# Subtest: Reconciliação independente do contexto 1 {"dCalendario|Ano":2025}
+ok 4 - Reconciliação independente do contexto 1 {"dCalendario|Ano":2025}
+  ---
+  duration_ms: 2.8148
+  ...
+# Subtest: Reconciliação independente do contexto 2 {"dCalendario|Ano":2026}
+ok 5 - Reconciliação independente do contexto 2 {"dCalendario|Ano":2026}
+  ---
+  duration_ms: 0.8614
+  ...
+# Subtest: Reconciliação independente do contexto 3 {"dCalendario|MesNome":"abr"}
+ok 6 - Reconciliação independente do contexto 3 {"dCalendario|MesNome":"abr"}
+  ---
+  duration_ms: 0.9236
+  ...
+# Subtest: Reconciliação independente do contexto 4 {"dCalendario|MesNome":"ago"}
+ok 7 - Reconciliação independente do contexto 4 {"dCalendario|MesNome":"ago"}
+  ---
+  duration_ms: 1.5488
+  ...
+# Subtest: Reconciliação independente do contexto 5 {"dCalendario|MesNome":"dez"}
+ok 8 - Reconciliação independente do contexto 5 {"dCalendario|MesNome":"dez"}
+  ---
+  duration_ms: 1.5222
+  ...
+# Subtest: Reconciliação independente do contexto 6 {"dCalendario|MesNome":"fev"}
+ok 9 - Reconciliação independente do contexto 6 {"dCalendario|MesNome":"fev"}
+  ---
+  duration_ms: 2.315
+  ...
+# Subtest: Reconciliação independente do contexto 7 {"dCalendario|MesNome":"jan"}
+ok 10 - Reconciliação independente do contexto 7 {"dCalendario|MesNome":"jan"}
+  ---
+  duration_ms: 0.79
+  ...
+# Subtest: Reconciliação independente do contexto 8 {"dCalendario|MesNome":"jul"}
+ok 11 - Reconciliação independente do contexto 8 {"dCalendario|MesNome":"jul"}
+  ---
+  duration_ms: 0.4315
+  ...
+# Subtest: Reconciliação independente do contexto 9 {"dCalendario|MesNome":"jun"}
+ok 12 - Reconciliação independente do contexto 9 {"dCalendario|MesNome":"jun"}
+  ---
+  duration_ms: 0.3508
+  ...
+# Subtest: Reconciliação independente do contexto 10 {"dCalendario|MesNome":"mai"}
+ok 13 - Reconciliação independente do contexto 10 {"dCalendario|MesNome":"mai"}
+  ---
+  duration_ms: 0.3058
+  ...
+# Subtest: Reconciliação independente do contexto 11 {"dCalendario|MesNome":"mar"}
+ok 14 - Reconciliação independente do contexto 11 {"dCalendario|MesNome":"mar"}
+  ---
+  duration_ms: 0.3525
+  ...
+# Subtest: Reconciliação independente do contexto 12 {"dCalendario|MesNome":"nov"}
+ok 15 - Reconciliação independente do contexto 12 {"dCalendario|MesNome":"nov"}
+  ---
+  duration_ms: 0.3683
+  ...
+# Subtest: Reconciliação independente do contexto 13 {"dCalendario|MesNome":"out"}
+ok 16 - Reconciliação independente do contexto 13 {"dCalendario|MesNome":"out"}
+  ---
+  duration_ms: 0.3788
+  ...
+# Subtest: Reconciliação independente do contexto 14 {"dCalendario|MesNome":"set"}
+ok 17 - Reconciliação independente do contexto 14 {"dCalendario|MesNome":"set"}
+  ---
+  duration_ms: 0.3729
+  ...
+# Subtest: Reconciliação independente do contexto 15 {"dVeículos|tipo_frota":"Agregado"}
+ok 18 - Reconciliação independente do contexto 15 {"dVeículos|tipo_frota":"Agregado"}
+  ---
+  duration_ms: 1.7591
+  ...
+# Subtest: Reconciliação independente do contexto 16 {"dVeículos|tipo_frota":"Proprio"}
+ok 19 - Reconciliação independente do contexto 16 {"dVeículos|tipo_frota":"Proprio"}
+  ---
+  duration_ms: 1.1578
+  ...
+# Subtest: Reconciliação independente do contexto 17 {"dVeículos|tipo_frota":"Terceiro"}
+ok 20 - Reconciliação independente do contexto 17 {"dVeículos|tipo_frota":"Terceiro"}
+  ---
+  duration_ms: 1.0879
+  ...
+# Subtest: Reconciliação independente do contexto 18 {"dRotas|flag_rota":"INTERESTADUAL"}
+ok 21 - Reconciliação independente do contexto 18 {"dRotas|flag_rota":"INTERESTADUAL"}
+  ---
+  duration_ms: 1.228
+  ...
+# Subtest: Reconciliação independente do contexto 19 {"dStatus|Status":"Cadastrado"}
+ok 22 - Reconciliação independente do contexto 19 {"dStatus|Status":"Cadastrado"}
+  ---
+  duration_ms: 0.9956
+  ...
+# Subtest: Reconciliação independente do contexto 20 {"dCalendario|Ano":1999}
+ok 23 - Reconciliação independente do contexto 20 {"dCalendario|Ano":1999}
+  ---
+  duration_ms: 1.4929
+  ...
+# Subtest: Filtro sem resultados mantém ausência de média e taxa
+ok 24 - Filtro sem resultados mantém ausência de média e taxa
+  ---
+  duration_ms: 0.2509
+  ...
+# Subtest: Parâmetro desconectado não exclui fatos
+ok 25 - Parâmetro desconectado não exclui fatos
+  ---
+  duration_ms: 0.7882
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 166.1426

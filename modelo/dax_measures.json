@@ -1,0 +1,317 @@
+[
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Total Viagens",
+    "Expression":"\nCOUNT(fViagens[id_operacao])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Volume Total",
+    "Expression":"SUM('fViagens'[peso_total])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Tempo Médio",
+    "Expression":"AVERAGE('fViagens'[tempo_execucao_horas])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Qtd Não Informado",
+    "Expression":"\nCALCULATE(\n    COUNTROWS(fViagens),\n    fViagens[flag_sla_atualizada] = \"Não informado\",\n    REMOVEFILTERS(fViagens[flag_sla_atualizada])\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Media Viagens",
+    "Expression":"\nCALCULATE(\n    AVERAGEX(\n        VALUES(dCalendario[AnoMes]),\n        [Total Viagens]\n    ),\n    REMOVEFILTERS(dCalendario)\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Resumo Executivo HTML",
+    "Expression":"\nVAR TotalViagens = [Total Viagens]\nVAR PercNoPrazo = [% No Prazo]\nVAR QtdAtrasos = [Qtd Atrasos]\nVAR TempoMedio = [Tempo Médio]\nVAR TempoAtraso = [Tempo Médio Atraso]\n\nRETURN\n\"\n<div style='font-family:Segoe UI; font-size:12px; line-height:1.4'>\n    No período analisado, foram realizadas \n    <b style='color:#2E86C1'>\" & FORMAT(TotalViagens,\"#,0\") & \"<\/b> viagens, com \n    <b style='color:#27AE60'>\" & FORMAT(PercNoPrazo,\"0.0%\") & \"<\/b> no prazo e \n    <b style='color:#E74C3C'>\" & FORMAT(QtdAtrasos,\"#,0\") & \"<\/b> atrasos registrados, apresentando tempo médio de \n    <b>\" & FORMAT(TempoMedio,\"0.0\") & \"h<\/b> e atraso médio de \n    <b style='color:#E67E22'>\" & FORMAT(TempoAtraso,\"0.0\") & \"h<\/b>, concentrado em poucos casos.\n<\/div>\n\"",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Qtd Motoristas",
+    "Expression":"\nDISTINCTCOUNT(fViagens[motorista])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Total Veículos",
+    "Expression":"\nCOUNTROWS('dVeículos')",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Atraso Motorista",
+    "Expression":"\nCALCULATE(SUM(fViagens[atraso_horas]))",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Classificação",
+    "Expression":"\nSWITCH(\n    [Classificação Motorista],\n    \"Crítico\", \"#E74C3C\",\n    \"Atenção\", \"#F1C40F\",\n    \"#2ECC71\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Ranking Motorista",
+    "Expression":"\nRANKX(\n    ALL(fViagens[motorista]),\n    [Atraso Motorista],\n    ,\n    DESC,\n    DENSE\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Meta",
+    "Expression":"0.95",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Minimo",
+    "Expression":"0",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Maximo",
+    "Expression":"1",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Tempo Médio Entrega",
+    "Expression":"\nAVERAGE(fViagens[tempo_execucao_horas])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Maior Atraso (h)",
+    "Expression":"\nMAX(fViagens[atraso_horas])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Desvio Tempo (h)",
+    "Expression":"\nSTDEV.P(fViagens[tempo_execucao_horas])",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Tempo Médio Motorista",
+    "Expression":"\nAVERAGEX(\n    VALUES('fViagens'[motorista]),\n    [Tempo Médio]\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Diagnostico",
+    "Expression":"\nVAR Tempo = [Tempo Médio Motorista]\nVAR Atraso = [Atraso Motorista]\n\nRETURN\nSWITCH(\n    TRUE(),\n    Atraso > 500, \"#E74C3C\",       -- 🔴 crítico\n    Tempo > 70, \"#F1C40F\",         -- 🟡 atenção\n    \"#2ECC71\"                      -- 🟢 ok\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Media Geral Tempo",
+    "Expression":"\nCALCULATE(\n    [Tempo Médio],\n    ALL(fViagens)\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Faixa Tempo",
+    "Expression":"\nSWITCH(\n    SELECTEDVALUE(fViagens[Faixa Tempo]),\n    \"0-20h\", \"#2ECC71\",\n    \"20-40h\", \"#27AE60\",\n    \"40-60h\", \"#F1C40F\",\n    \"60-100h\", \"#F39C12\",\n    \"100-200h\", \"#E74C3C\",\n    \"#922B21\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Qtd Atrasos",
+    "Expression":"\nVAR Resultado =\n    COUNTROWS(\n        FILTER(\n            'fViagens',\n            'fViagens'[atraso_horas] > 0\n        )\n    )\nRETURN\n    COALESCE(Resultado, 0)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% No Prazo",
+    "Expression":"\nDIVIDE(\n    CALCULATE(\n        COUNT('fViagens'[id_operacao]),\n        'fViagens'[Status Prazo] = \"No Prazo\"\n    ),\n    [Total Viagens]\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% Viagens Atrasadas",
+    "Expression":"\nDIVIDE(\n    CALCULATE(\n        COUNT('fViagens'[id_operacao]),\n        'fViagens'[atraso_horas] > 0\n    ),\n    COUNT('fViagens'[id_operacao])\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% No Prazo Formatado",
+    "Expression":"\nFORMAT([% No Prazo], \"0.0%\")",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Tempo Médio Atraso",
+    "Expression":"\nAVERAGEX(\n    FILTER(\n        'fViagens',\n        'fViagens'[atraso_horas] > 0\n    ),\n    'fViagens'[atraso_horas]\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Rank Cliente",
+    "Expression":"\nRANKX(\n    ALLSELECTED('dCliente'[razao_social]),\n    [Volume Total],\n    ,\n    DESC,\n    DENSE\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Top 3 Cliente",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [Rank Cliente] = 1, \"#1E8449\",\n    [Rank Cliente] = 2, \"#27AE60\",\n    [Rank Cliente] = 3, \"#52BE80\",\n    \"#2E86C1\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Rank Rota",
+    "Expression":"\nRANKX(\n    ALLSELECTED('dRotas'[uf_rota]),\n    [Volume Total] + \n    DIVIDE(\n        RANKX(\n            ALLSELECTED('dRotas'[uf_rota]),\n            SELECTEDVALUE('dRotas'[uf_rota]),\n            ,\n            ASC\n        ),\n        1000000\n    ),\n    ,\n    DESC,\n    DENSE\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Top 3 Rota",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [Rank Rota] = 1, \"#1E8449\",\n    [Rank Rota] = 2, \"#27AE60\",\n    [Rank Rota] = 3, \"#52BE80\",\n    \"#2E86C1\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Qtd Atrasos Motorista",
+    "Expression":"\nCALCULATE(\n    [Qtd Atrasos],\n    ALLEXCEPT('fViagens', 'fViagens'[motorista])\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Classificação Motorista",
+    "Expression":"\nSWITCH(\n    TRUE(),\n\n    -- 🔴 Crítico: muitos atrasos E alto impacto\n    [Qtd Atrasos Motorista] >= 3 && [Tempo Médio Motorista] > 65, \"🔴 Crítico\",\n\n    -- 🟡 Atenção: algum problema relevante\n    [Qtd Atrasos Motorista] >= 2 || [Tempo Médio Motorista] > 60, \"🟡 Atenção\",\n\n    -- 🟢 OK\n    \"🟢 OK\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Rank Motorista",
+    "Expression":"\nRANKX(\n    ALLSELECTED('fViagens'[motorista]),\n    [Qtd Atrasos Motorista],\n    ,\n    DESC,\n    DENSE\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Veículos Sem Atraso",
+    "Expression":"\n[Total Veículos] - [Veículos com Atraso]",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% Veículos Eficientes",
+    "Expression":"\nDIVIDE(\n    [Veículos Sem Atraso],\n    [Total Veículos]\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Veículos com Atraso",
+    "Expression":"\nCALCULATE(\n    DISTINCTCOUNT('fViagens'[id_veiculo]),\n    'fViagens'[atraso_horas] > 0\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% Impacto por Tempo",
+    "Expression":"\nDIVIDE(\n    SUM('fViagens'[atraso_horas]),\n    CALCULATE(\n        SUM('fViagens'[atraso_horas]),\n        ALLSELECTED('dVeículos')\n    )\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Score Veículo",
+    "Expression":"\n([Qtd Atrasos] * 1) + (SUM('fViagens'[atraso_horas]) \/ 10)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% Impacto Score",
+    "Expression":"\nDIVIDE(\n    [Score Veículo],\n    CALCULATE(\n        [Score Veículo],\n        ALL('fViagens')\n    )\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Impacto Veículo",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [% Impacto por Tempo] >= 0.30, \"#E74C3C\",   -- 🔴 alto impacto\n    [% Impacto por Tempo] >= 0.15, \"#F1C40F\",   -- 🟡 médio\n    \"#2ECC71\"                                  -- 🟢 baixo\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Atrasos",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [Qtd Atrasos] >= 3, \"#E74C3C\",\n    [Qtd Atrasos] >= 2, \"#F1C40F\",\n    \"#BDC3C7\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor Tempo Atraso",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [Tempo Médio Atraso] > 100, \"#E74C3C\",\n    [Tempo Médio Atraso] > 60, \"#F1C40F\",\n    \"#2ECC71\"\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"% Atraso",
+    "Expression":"\nDIVIDE(\n    [Qtd Atrasos],\n    [Total Viagens]\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor % Prazo",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [% No Prazo] >= 0.95, \"#2ECC71\",   -- verde\n    [% No Prazo] >= 0.90, \"#F1C40F\",   -- amarelo\n    \"#E74C3C\"                          -- vermelho\n)",
+    "DisplayFolder":null,
+    "Description":null
+  },
+  {
+    "TableName":"01 - Medidas",
+    "Name":"Cor % Atraso",
+    "Expression":"\nSWITCH(\n    TRUE(),\n    [% Atraso] <= 0.02, \"#2ECC71\",   -- bom\n    [% Atraso] <= 0.05, \"#F1C40F\",   -- atenção\n    \"#E74C3C\"                        -- ruim\n)",
+    "DisplayFolder":null,
+    "Description":null
+  }
+]

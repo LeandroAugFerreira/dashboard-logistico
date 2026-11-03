@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {createModel} from '../web/model.mjs';
+const root=new URL('../',import.meta.url);
+const read=p=>JSON.parse(readFileSync(new URL(p,root),'utf8'));
+const data=read('web/data.json'),golden=read('tests/golden.json'),model=createModel(data,golden.kind);
+test('PBIX e bases são cópias binárias preservadas',()=>{for(const f of read('originais/SHA256.json'))assert.equal(createHash('sha256').update(readFileSync(new URL(f.file,root))).digest('hex'),f.sha256,f.file);});
+test('Snapshot binário e contagens de todas as tabelas preservados',()=>{assert.equal(createHash('sha256').update(readFileSync(new URL('web/data.json',root))).digest('hex'),golden.data_file_sha256);assert.deepEqual(Object.keys(data.tables).sort(),Object.keys(golden.table_rows).sort());for(const [name,rows] of Object.entries(data.tables))assert.equal(rows.length,golden.table_rows[name],name);});
+for(const [i,c] of golden.cases.entries())test('Reconciliação independente do contexto '+i+' '+JSON.stringify(c.context),()=>{for(const [metric,expected] of Object.entries(c.expected)){const actual=model.measure(metric,c.context);if(expected===null)assert.equal(actual,null,metric);else assert.ok(Math.abs(actual-expected)<=Math.max(1e-7,Math.abs(expected)*1e-11),`${metric}: ${actual} != ${expected}`);}});
+test('Filtro sem resultados mantém ausência de média e taxa',()=>{const c={'dCalendario|Ano':1999};assert.equal(model.measure(golden.kind==='comercial'?'% Margem de Lucro':'Tempo Médio',c),null);});
+test('Parâmetro desconectado não exclui fatos',()=>{assert.equal(model.measure(golden.kind==='comercial'?'Total Vendas':'Total Viagens',{'Parâmetro|Parâmetro':'Total Vendas'}),model.measure(golden.kind==='comercial'?'Total Vendas':'Total Viagens',{}));});
+if(golden.kind==='comercial')test('Indicadores da captura publicada em 2021',()=>{const c={'dCalendario|Ano':2021};assert.equal(Math.round(model.measure('Faturamento Total',c)),5982861);assert.equal(Math.round(model.measure('Lucro Total',c)),3872368);assert.equal(model.measure('Total Vendas',c),36230);assert.equal(Math.round(model.measure('% Crescimento Vendas YoY',c)*100),1278);});

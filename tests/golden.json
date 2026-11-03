@@ -1,0 +1,400 @@
+{
+  "kind": "logistico",
+  "cases": [
+    {
+      "context": {},
+      "expected": {
+        "Total Viagens": 854,
+        "Volume Total": 6754202.332,
+        "Tempo Médio": 58.80160062392141,
+        "Qtd Atrasos": 11,
+        "% No Prazo": 0.9871194379391101,
+        "% Atraso": 0.01288056206088993,
+        "Tempo Médio Atraso": 138.68585858585857,
+        "Desvio Tempo (h)": 95.16387364433352,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 0.7708333333333334,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|Ano": 2025
+      },
+      "expected": {
+        "Total Viagens": 816,
+        "Volume Total": 6518816.974,
+        "Tempo Médio": 59.68862736958627,
+        "Qtd Atrasos": 11,
+        "% No Prazo": 0.9865196078431373,
+        "% Atraso": 0.013480392156862746,
+        "Tempo Médio Atraso": 138.68585858585857,
+        "Desvio Tempo (h)": 96.83654851924348,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 0.7708333333333334,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|Ano": 2026
+      },
+      "expected": {
+        "Total Viagens": 38,
+        "Volume Total": 235385.358,
+        "Tempo Médio": 37.85211601307189,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 31.840080114782264,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "abr"
+      },
+      "expected": {
+        "Total Viagens": 103,
+        "Volume Total": 1422165.957,
+        "Tempo Médio": 127.38975797579756,
+        "Qtd Atrasos": 5,
+        "% No Prazo": 0.9514563106796117,
+        "% Atraso": 0.04854368932038835,
+        "Tempo Médio Atraso": 220.95749999999998,
+        "Desvio Tempo (h)": 196.36843908740974,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 0.8958333333333334,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "ago"
+      },
+      "expected": {
+        "Total Viagens": 61,
+        "Volume Total": 378048.025,
+        "Tempo Médio": 52.4312204007286,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 77.13590060540709,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "dez"
+      },
+      "expected": {
+        "Total Viagens": 50,
+        "Volume Total": 362224.63,
+        "Tempo Médio": 49.77277186761229,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 40.3062885768779,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "fev"
+      },
+      "expected": {
+        "Total Viagens": 52,
+        "Volume Total": 273074.78,
+        "Tempo Médio": 33.51213141025641,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 28.150439583491952,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "jan"
+      },
+      "expected": {
+        "Total Viagens": 75,
+        "Volume Total": 517845.036,
+        "Tempo Médio": 49.73271825396825,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 84.93708425633916,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "jul"
+      },
+      "expected": {
+        "Total Viagens": 103,
+        "Volume Total": 939962.614,
+        "Tempo Médio": 55.062637540453075,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 74.03586851267536,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "jun"
+      },
+      "expected": {
+        "Total Viagens": 76,
+        "Volume Total": 610596.896,
+        "Tempo Médio": 47.861820175438595,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 81.23946127985566,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "mai"
+      },
+      "expected": {
+        "Total Viagens": 65,
+        "Volume Total": 797405.38,
+        "Tempo Médio": 40.19378205128205,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 40.2410379750195,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "mar"
+      },
+      "expected": {
+        "Total Viagens": 61,
+        "Volume Total": 296752.605,
+        "Tempo Médio": 62.430446265938066,
+        "Qtd Atrasos": 6,
+        "% No Prazo": 0.9016393442622951,
+        "% Atraso": 0.09836065573770492,
+        "Tempo Médio Atraso": 70.1261574074074,
+        "Desvio Tempo (h)": 65.74865914955433,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 0.875,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "nov"
+      },
+      "expected": {
+        "Total Viagens": 59,
+        "Volume Total": 345198.664,
+        "Tempo Médio": 51.11087099811676,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 58.6684058116271,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "out"
+      },
+      "expected": {
+        "Total Viagens": 81,
+        "Volume Total": 473109.014,
+        "Tempo Médio": 48.9495202020202,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 67.45677579851876,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dCalendario|MesNome": "set"
+      },
+      "expected": {
+        "Total Viagens": 68,
+        "Volume Total": 337818.731,
+        "Tempo Médio": 47.30108974358974,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": 45.983165690180236,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dVeículos|tipo_frota": "Agregado"
+      },
+      "expected": {
+        "Total Viagens": 145,
+        "Volume Total": 1015862.867,
+        "Tempo Médio": 59.31834325396825,
+        "Qtd Atrasos": 3,
+        "% No Prazo": 0.9793103448275862,
+        "% Atraso": 0.020689655172413793,
+        "Tempo Médio Atraso": 98.06027777777778,
+        "Desvio Tempo (h)": 98.04123305450342,
+        "Total Veículos": 8,
+        "% Veículos Eficientes": 0.625,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dVeículos|tipo_frota": "Proprio"
+      },
+      "expected": {
+        "Total Viagens": 383,
+        "Volume Total": 3057108.33,
+        "Tempo Médio": 59.67241549088771,
+        "Qtd Atrasos": 2,
+        "% No Prazo": 0.9947780678851175,
+        "% Atraso": 0.005221932114882507,
+        "Tempo Médio Atraso": 54.33333333333333,
+        "Desvio Tempo (h)": 95.36691860437254,
+        "Total Veículos": 23,
+        "% Veículos Eficientes": 0.9130434782608695,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dVeículos|tipo_frota": "Terceiro"
+      },
+      "expected": {
+        "Total Viagens": 317,
+        "Volume Total": 2617730.513,
+        "Tempo Médio": 57.11794480171489,
+        "Qtd Atrasos": 6,
+        "% No Prazo": 0.9810725552050473,
+        "% Atraso": 0.01892744479495268,
+        "Tempo Médio Atraso": 187.1161574074074,
+        "Desvio Tempo (h)": 94.54158725882492,
+        "Total Veículos": 17,
+        "% Veículos Eficientes": 0.6470588235294118,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dRotas|flag_rota": "INTERESTADUAL"
+      },
+      "expected": {
+        "Total Viagens": 587,
+        "Volume Total": 4544100.716,
+        "Tempo Médio": 58.353510936895084,
+        "Qtd Atrasos": 10,
+        "% No Prazo": 0.9829642248722317,
+        "% Atraso": 0.017035775127768313,
+        "Tempo Médio Atraso": 149.35797222222223,
+        "Desvio Tempo (h)": 93.09396999473061,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 0.7916666666666666,
+        "Qtd Motoristas": 15
+      }
+    },
+    {
+      "context": {
+        "dStatus|Status": "Cadastrado"
+      },
+      "expected": {
+        "Total Viagens": 7,
+        "Volume Total": 43020.005,
+        "Tempo Médio": null,
+        "Qtd Atrasos": 0,
+        "% No Prazo": 1.0,
+        "% Atraso": 0.0,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": null,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 6
+      }
+    },
+    {
+      "context": {
+        "dCalendario|Ano": 1999
+      },
+      "expected": {
+        "Total Viagens": 0,
+        "Volume Total": 0,
+        "Tempo Médio": null,
+        "Qtd Atrasos": 0,
+        "% No Prazo": null,
+        "% Atraso": null,
+        "Tempo Médio Atraso": null,
+        "Desvio Tempo (h)": null,
+        "Total Veículos": 48,
+        "% Veículos Eficientes": 1.0,
+        "Qtd Motoristas": 0
+      }
+    }
+  ],
+  "table_rows": {
+    "01 - Medidas": 1,
+    "DateTableTemplate_7cf4679f-3365-4871-94fb-85e45c5c1652": 1,
+    "LocalDateTable_1594a30c-20a0-44f9-b657-d750b92d5d2d": 730,
+    "LocalDateTable_8e971f7b-f3e3-4b56-881d-19024d2c8b19": 730,
+    "LocalDateTable_9cece091-7883-43df-9aba-a167cbea6090": 730,
+    "LocalDateTable_c8146500-e346-4408-a50d-14a14f5c064a": 730,
+    "LocalDateTable_c8a34866-32c2-438c-8daa-9cf5e46037a7": 730,
+    "LocalDateTable_e4b1c64e-8ee8-42a7-be9c-9fc257e764c6": 365,
+    "dCalendario": 730,
+    "dCliente": 26,
+    "dEmpresa": 2,
+    "dFaixaTempo": 6,
+    "dRotas": 30,
+    "dStatus": 4,
+    "dVeículos": 48,
+    "fViagens": 854
+  },
+  "data_file_sha256": "88728e38ecfb802e3bdf2b0fc1cb21d9e53456f5e4baa5148019652b3871e623"
+}
