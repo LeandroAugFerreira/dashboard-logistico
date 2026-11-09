@@ -11,3 +11,13 @@ jobs:
         with:
           node-version: "22"
       - run: node --test tests/*.test.mjs
+      - name: Analisar cobertura de chaves sem expor linhas de dados
+        run: node scripts/recruitment_audit.mjs
+      - name: Arquivar diagnóstico agregado de integridade
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logistica-integridade-agregada
+          path: reports/quality-summary.json
+          if-no-files-found: ignore
+          retention-days: 7
