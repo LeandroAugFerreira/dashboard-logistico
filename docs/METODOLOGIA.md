@@ -9,3 +9,10 @@ Referência do extrator: [PBIXRay](https://github.com/Hugoberry/pbixray), versã
 Mapas: [IBGE, API de malhas](https://servicodados.ibge.gov.br/api/docs/malhas?versao=3) e [Natural Earth](https://github.com/nvkelso/natural-earth-vector), arquivos locais consultados em 03/11/2026. As bolhas por UF/continente representam as mesmas categorias do modelo, sobre uma malha simplificada. Árvore de decomposição com navegação manual; não executa análises de IA do Power BI.
 
 O snapshot inclui 854 viagens e 48 veículos. Volume Total é a soma de peso_total, conforme DAX, não a quantidade de volumes. O percentual no prazo usa Status Prazo / Total Viagens; a quantidade de atrasos usa atraso_horas >0. Os gráficos de top clientes/rotas mantêm o filtro TopN por Volume Total e a medida Rank declarada no eixo do layout original, sem reinterpretar silenciosamente o gráfico. Médias ignoram valores nulos.
+
+
+## Revisão de qualidade por chaves de dimensão — 08/11/2026
+
+O teste de integridade mede quantos valores de chaves da fato `fViagens` existem em cada dimensão extraída. O diagnóstico do snapshot estático encontrou **8 viagens sem correspondência na dimensão dRotas** e **9 na dimensão dVeículos**. As outras três relações avaliadas tiveram cobertura completa. Os grupos podem se sobrepor. Nenhuma linha foi inventada, excluída ou corrigida no PBIX/JSON. O relatório de diagnóstico é somente agregado e [reproduzível pelo script](../scripts/recruitment_audit.mjs).
+
+Assim, rankings por rota/tipo de frota devem explicitar a parcela não classificada. A medida `Volume Total` continua sendo a soma de `peso_total`, não contagem física de volumes. [Estudo de caso](recrutamento/ESTUDO_DE_CASO.md) e [Qualidade](recrutamento/QUALIDADE_DADOS.md).

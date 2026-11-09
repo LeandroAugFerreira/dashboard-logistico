@@ -92,3 +92,13 @@ A publicação foi autorizada pelo autor. Não foi atribuída uma nova licença 
 ## 15. Portfólio
 
 [Página do projeto](https://leandroaugferreira.github.io/transporte.html) · [Perfil GitHub](https://github.com/LeandroAugFerreira)
+
+## 16. Estudo de caso técnico para recrutamento — Dados e BI
+
+- [Auditoria](docs/recrutamento/AUDITORIA.md), [estudo de caso](docs/recrutamento/ESTUDO_DE_CASO.md), [arquitetura Mermaid](docs/recrutamento/ARQUITETURA.md), [15 perguntas técnicas](docs/recrutamento/ENTREVISTA_TECNICA.md) e [roteiro de 3 minutos](docs/recrutamento/ROTEIRO_DEMO.md).
+- [Guia interativo do case](https://leandroaugferreira.github.io/logistica-case.html): comparação de períodos e explicação de integridade com valores didáticos congelados. **Não substitui** o [dashboard web funcional](https://leandroaugferreira.github.io/dashboards/logistico/).
+- [14 novos testes Node](tests/recrutamento.test.mjs) em complemento aos 25 anteriores: **39 aprovados** no [GitHub Actions #42538913379](https://github.com/LeandroAugFerreira/dashboard-logistico/actions/runs/42538913379).
+- [Diagnóstico agregado](scripts/recruitment_audit.mjs) de integridade referencial: **8 viagens sem correspondência em dRotas**, **9 em dVeículos**. [Qualidade dos dados](docs/recrutamento/QUALIDADE_DADOS.md) · [Evidências](docs/recrutamento/EVIDENCIAS.md).
+- [Plano de melhorias](docs/recrutamento/PLANO_DE_MELHORIAS.md) e [protocolo de execução](docs/recrutamento/PROTOCOLO_DE_TESTES.md).
+
+**Não foram alterados** PBIX, XLSX, medidas DAX, Power Query, fatos, dimensões, snapshot, nem o dashboard web original. A interface usa JavaScript, não motor DAX. Os resultados são **didáticos, estáticos e não expressam ganhos logísticos de empresa real**.
